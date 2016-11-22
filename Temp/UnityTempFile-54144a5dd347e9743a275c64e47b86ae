@@ -26,7 +26,7 @@
 -r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll"
 -define:UNITY_5_3_OR_NEWER
 -define:UNITY_5_4_OR_NEWER
--define:UNITY_5_4_3
+-define:UNITY_5_4_1
 -define:UNITY_5_4
 -define:UNITY_5
 -define:ENABLE_NEW_BUGREPORTER

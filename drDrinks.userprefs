@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\controlaRespawn.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\detectaTiro.cs">
     <Files>
       <File FileName="Assets\Assets\Arma agua\Arma.js" Line="5" Column="2" />
-      <File FileName="Assets\Scripts\controlaRespawn.cs" Line="12" Column="3" />
+      <File FileName="Assets\Scripts\controlaRespawn.cs" Line="46" Column="23" />
+      <File FileName="Assets\Scripts\detectaTiro.cs" Line="15" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +12,7 @@
           <Node name="drDrinks" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="controlaRespawn.cs" selected="True" />
+                <Node name="detectaTiro.cs" selected="True" />
               </Node>
             </Node>
           </Node>

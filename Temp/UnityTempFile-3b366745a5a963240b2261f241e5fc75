@@ -11,7 +11,7 @@
 -r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll"
 -define:UNITY_5_3_OR_NEWER
 -define:UNITY_5_4_OR_NEWER
--define:UNITY_5_4_3
+-define:UNITY_5_4_1
 -define:UNITY_5_4
 -define:UNITY_5
 -define:ENABLE_NEW_BUGREPORTER
@@ -129,6 +129,9 @@ Assets/GoogleVR/Scripts/UI/IGvrGazePointer.cs
 Assets/GoogleVR/Scripts/UI/IGvrGazeResponder.cs
 Assets/GoogleVR/Scripts/Utilities/GvrFPS.cs
 Assets/GoogleVR/Scripts/Utilities/GvrIntent.cs
-Assets/movimentaCopo.cs
+Assets/Scripts/controlaRespawn.cs
+Assets/Scripts/criaCopo.cs
+Assets/Scripts/detectaTiro.cs
+Assets/Scripts/movimentaCopo.cs
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
