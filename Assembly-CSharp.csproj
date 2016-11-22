@@ -108,7 +108,11 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Google.ProtocolBuffers">
+<<<<<<< HEAD
  <HintPath>D:/Projects/drDrinks/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+=======
+ <HintPath>C:/Users/gabri/Documents/drDrinks/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+>>>>>>> d02079d0b102ab8b2b973b9bdb6cea2b033121dd
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
