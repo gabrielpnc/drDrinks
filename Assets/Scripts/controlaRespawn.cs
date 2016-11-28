@@ -50,8 +50,12 @@ public class controlaRespawn : MonoBehaviour
 	float respawnIntervalo = 5f;
 
 	//Cria uma variável pra ser usada como, esse item varia quando o copo é criado baseado no intervalo que será fixo
-	float respawnCooldown = 0;
+	float respawnCooldown = 5f;
 
+	void Awake() {
+		QualitySettings.vSyncCount = 1;
+		Application.targetFrameRate = 60;
+	}
 
 
 	// Use this for initialization
@@ -63,28 +67,30 @@ public class controlaRespawn : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
 		//A cada frame é retirada o segundos do cooldown
-		respawnCooldown -= Time.deltaTime;
+		respawnCooldown += Time.deltaTime;
+
+		Debug.Log (respawnCooldown);
 
 		//Se o cooldown estiver menor que 0 cria um copo		
-		if (respawnCooldown <= 0) {
-
-			criaCopo (0, Random.Range(0,2), 14.59f);
+		if (respawnCooldown > respawnIntervalo) {
 
 			//Volta o cooldown para o tempo escolhido
-			respawnCooldown = respawnIntervalo;
+			respawnCooldown = 0;
+
+			criaCopo (0, Random.Range (0, 2), 14.59f);
 		}
 	}
 
-	public void criaCopo(int nivelCopo, int corCopo, float posX){
+	public void criaCopo (int nivelCopo, int corCopo, float posX)
+	{
 		/*
 		 * Como o prefab estava salvo de uma maneira estranha (em .fbx)
 		 * Tive que adicionar os componentes na unha, mudar escala e talz..
 		*/
 
 		//Cria um objeto para ficar guardado até ser instanciado
-		GameObject tipoCopo = new GameObject(); 
+		GameObject tipoCopo = gameObject; 
 
 		//Escolhe qual é o tipo do copo baseado na cor 1 = azul e 0 = vermelho
 		if (corCopo == 1) {
@@ -123,8 +129,10 @@ public class controlaRespawn : MonoBehaviour
 			}
 		}
 
+
 		//Copo instanciado com a posição colocada na mão, se mudar qualquer posicionamento é preciso mudar isso ou instanciar alguma gameObject de referencia
 		GameObject novoCopo = Instantiate (tipoCopo, new Vector3 (posX, 3.85f, -2.16f), transform.rotation) as GameObject;
+
 
 		//A escala foi modificada pois o prefab estava pequeno
 		novoCopo.transform.localScale = new Vector3 (10, 10, 10);
@@ -143,5 +151,7 @@ public class controlaRespawn : MonoBehaviour
 		//Como o centro desse placeholder esta estranho, tive que mudar o Y baseado no tamanho colocado acima
 		areaBox.center = new Vector3 (0, 0.05f, 0);
 		areaBox.isTrigger = true;
+
 	}
 }
+//Se Deus é por nós, quem será contra nós?
