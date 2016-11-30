@@ -27,8 +27,6 @@ public class controlaRespawn : MonoBehaviour
 	[SerializeField]
 	GameObject copoAzul3;
 
-
-
 	//Campo serializado do copo vermelho
 	[SerializeField]
 	GameObject copoVermelho;
@@ -47,10 +45,20 @@ public class controlaRespawn : MonoBehaviour
 
 	//Campo serializado do tempo do intervalo do respawn
 	[SerializeField]
-	float respawnIntervalo = 5f;
+	float respawnIntervalo;
 
-	//Cria uma variável pra ser usada como, esse item varia quando o copo é criado baseado no intervalo que será fixo
-	float respawnCooldown = 5f;
+	//Respawn será variado a cada objeto criado ele é zerado
+	float respawnCooldown;
+
+	//Cria uma variável para controlar a dificuldade conforme o tempo
+	float tempoJogo;
+
+	//Define o tempo que será colocado para mudar cada nível
+	[SerializeField]
+	float tempoDificuldade;
+
+	//Variavel que informará qual o nível da dificuldade e que será baseada para somar a movimentação do copo
+	int dificuldadeJogo;
 
 	void Awake() {
 		QualitySettings.vSyncCount = 1;
@@ -61,7 +69,10 @@ public class controlaRespawn : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		
+		//Começa o jogo na dificuldade 1 
+		dificuldadeJogo = 1;
+
+		respawnCooldown = respawnIntervalo;
 	}
 	
 	// Update is called once per frame
@@ -69,8 +80,6 @@ public class controlaRespawn : MonoBehaviour
 	{
 		//A cada frame é retirada o segundos do cooldown
 		respawnCooldown += Time.deltaTime;
-
-		Debug.Log (respawnCooldown);
 
 		//Se o cooldown estiver menor que 0 cria um copo		
 		if (respawnCooldown > respawnIntervalo) {
@@ -80,6 +89,27 @@ public class controlaRespawn : MonoBehaviour
 
 			criaCopo (0, Random.Range (0, 2), 14.59f);
 		}
+
+		//conta o tempo de jogo
+		tempoJogo += Time.deltaTime;
+
+		//Se o jogo atinge o tempo para mudar de dificuldade
+		if (tempoJogo > tempoDificuldade) {
+			tempoJogo = 0;
+			dificuldadeJogo = ++dificuldadeJogo;
+
+			Debug.Log ("Dificuldade aumentada");
+
+			//Se o intevalo de respawn for menor que 1
+			if (respawnIntervalo < 1) {
+				//Define o limite de 1 copo por segundo
+				respawnIntervalo = 1;
+			} else {
+				//Reduz 8% do intervalo a cada dificuldade aumentada
+				respawnIntervalo -= respawnIntervalo*0.08f;
+			}
+
+		} 
 	}
 
 	public void criaCopo (int nivelCopo, int corCopo, float posX)
@@ -138,6 +168,8 @@ public class controlaRespawn : MonoBehaviour
 		novoCopo.transform.localScale = new Vector3 (10, 10, 10);
 		//O prefab também não tinha a movimentação do copo
 		novoCopo.AddComponent <movimentaCopo> ();
+		//Calcula a velocidade aumentando 1/6 a cada dificuldade aumentada
+		novoCopo.GetComponent <movimentaCopo> ().velocidade *= 1+(0.16f*dificuldadeJogo);
 		//Adiciona o script pra detectar o tiro da arma
 		novoCopo.AddComponent <detectaTiro> ();
 		//Informa que o nivel atual do objeto criado

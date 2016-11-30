@@ -5,7 +5,7 @@ public class movimentaCopo : MonoBehaviour
 {
 	//Vou fazer tudo em português já que parece há rejeição quando eu comento em inglês
 
-	float velocidade = 0.5f;
+	public float velocidade = 0.2f;
 
 	// Use this for initialization
 	void Start ()
