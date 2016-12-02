@@ -19,3 +19,4 @@ function Update () {
 		Instantiate(projetilVermelho,transform.position,transform.rotation);
 	}
 }
+//Se Deus é por nós, quem será contra nós?
