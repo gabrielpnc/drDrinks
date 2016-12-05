@@ -158,11 +158,9 @@ public class controlaRespawn : MonoBehaviour
 				break;
 			}
 		}
-
-
+			
 		//Copo instanciado com a posição colocada na mão, se mudar qualquer posicionamento é preciso mudar isso ou instanciar alguma gameObject de referencia
 		GameObject novoCopo = Instantiate (tipoCopo, new Vector3 (posX, 3.85f, -2.16f), transform.rotation) as GameObject;
-
 
 		//A escala foi modificada pois o prefab estava pequeno
 		novoCopo.transform.localScale = new Vector3 (10, 10, 10);
@@ -183,7 +181,6 @@ public class controlaRespawn : MonoBehaviour
 		//Como o centro desse placeholder esta estranho, tive que mudar o Y baseado no tamanho colocado acima
 		areaBox.center = new Vector3 (0, 0.05f, 0);
 		areaBox.isTrigger = true;
-
 	}
 }
 //Se Deus é por nós, quem será contra nós?

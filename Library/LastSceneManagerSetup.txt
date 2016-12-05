@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Cena 1 VR Dev.unity
-  isLoaded: 1
-  isActive: 1
