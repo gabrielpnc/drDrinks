@@ -26,7 +26,7 @@ public class movimentaCopo : MonoBehaviour
 			int nivelCopo = gameObject.GetComponent<detectaTiro> ().nivelCopo;
 
 			//Se o copo não estiver cheio
-			if (nivelCopo < 3) {
+			if (nivelCopo == 0) {
 				//Busca o objeto que controla a vida e perde 1 vida
 				GameObject.Find ("Vida").GetComponent<controlaVida> ().perdeVida();
 			}
