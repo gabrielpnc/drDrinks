@@ -22,8 +22,16 @@ public class movimentaCopo : MonoBehaviour
 
 		//Se o copo sair do campo de visão do jogador ele será destruído
 		if (transform.position.x < 9) {
-			Destroy (gameObject);	
+			//Busca identificar o nível do copo, está assm por que o objeto não tem instancia com os atributes que ele deveria ter no placeholder
+			int nivelCopo = gameObject.GetComponent<detectaTiro> ().nivelCopo;
+
+			//Se o copo não estiver cheio
+			if (nivelCopo < 4) {
+				//Busca o objeto que controla a vida e perde 1 vida
+				GameObject.Find ("Vida").GetComponent<controlaVida> ().perdeVida();
+			}
+			Destroy (gameObject);
 		}
 	}
-}
+}			
 //Se Deus é por nós, quem será contra nós?
