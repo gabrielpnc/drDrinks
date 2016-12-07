@@ -72,27 +72,24 @@ public class controlaMenu : MonoBehaviour
 
 	protected string identificaCena (int opcaoSelecionada)
 	{
-		Debug.Log (opcaoSelecionada);
-
+		//Baseado no numero da opção executa uma cena
 		switch (opcaoSelecionada) {
 		//OPCAO 1
 		case 1: 
 			//Define que o modo de jogo será COM VR
-			PlayerPrefs.SetInt("JogarVR", 1);
+			PlayerPrefs.SetInt ("JogarVR", 1);
 			//Retorna a cena do jogo que deve ser carregada
 			return("Jogo"); 
-			break;
 		//OPCAO 2
 		case 2: 
 			//Define que o modo de jogo será SEM VR
-			PlayerPrefs.SetInt("JogarVR", 0);
+			PlayerPrefs.SetInt ("JogarVR", 0);
 			//Retorna a cena do jogo que deve ser carregada
 			return("Jogo"); 
-			return null;
 		//OPCAO 3
-		case 3: 
+		case 3:
 			Application.Quit ();
-			return null;
+			break;
 		}
 		return null;
 	}
