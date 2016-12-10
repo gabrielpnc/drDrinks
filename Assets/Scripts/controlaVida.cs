@@ -1,11 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+
 using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
+
 
 public class controlaVida : MonoBehaviour
 {
+
+	void Start(){
+		
+		PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+
+		PlayGamesPlatform.InitializeInstance(config);
+		// recommended for debugging:
+		PlayGamesPlatform.DebugLogEnabled = true;
+		// Activate the Google Play Games platform
+		PlayGamesPlatform.Activate();
+
+		Debug.Log ("entrou");
+
+		// authenticate user:
+		Social.localUser.Authenticate((bool success) => {
+			// handle success or failure
+		});
+	
+	}
+
 
 	// Define quantas vidas o jogador terá
 	[SerializeField]
@@ -21,13 +44,6 @@ public class controlaVida : MonoBehaviour
 	[SerializeField]
 	GameObject vida3;
 
-	// Use this for initialization
-	void Start ()
-	{
-		Social.localUser.Authenticate ((bool success) => {});
-
-	}
-
 	public void perdeVida ()
 	{
 		quantidadeVida--;
@@ -39,23 +55,13 @@ public class controlaVida : MonoBehaviour
 			Destroy (vida2);
 		}
 		if (quantidadeVida == 0) {
-			Destroy (vida1);
-		}
-		if (quantidadeVida < 0) {
+			// post score 12345 to leaderboard ID "Cfji293fjsie_QA")
+			Social.ReportScore(GameObject.Find ("Pontuacao").GetComponent<controlaPontuacao> ().informaPonto(), "CgkI69K_rp8dEAIQBQ", (bool success) => {
+				// handle success or failure
+			});
 			SceneManager.LoadScene ("Game Over");
+
 		}
-	}
-
-	//Esse script também controla pontos, tá tudo misturado pois cada dia era um escopo diferente e teve coisas que não previ
-	public static void Init ()
-	{
-		//Mostra o Log no Celular.
-		//PlayGamesPlatform.DebugLogEnabled = false;
-		//Ativa o plugin
-		PlayGamesPlatform.Activate ();
-
 	}
 }
-
-
 //Se Deus é por nós, quem será contra nós?
