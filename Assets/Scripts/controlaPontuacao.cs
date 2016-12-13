@@ -11,6 +11,7 @@ public class controlaPontuacao : MonoBehaviour
 	void Update ()
 	{
 		gameObject.GetComponent<TextMesh> ().text = pontos.ToString();
+		PlayerPrefs.SetInt ("Pontuacao", pontos);
 	}
 
 	public void adicionaPonto(int ponto){

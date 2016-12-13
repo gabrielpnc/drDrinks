@@ -508,7 +508,6 @@ GameObject:
   - 4: {fileID: 334135779}
   - 23: {fileID: 334135778}
   - 102: {fileID: 334135777}
-  - 114: {fileID: 334135776}
   m_Layer: 0
   m_Name: Pontuacao Final
   m_TagString: Untagged
@@ -516,17 +515,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &334135776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334135775}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34e951e4fe435b46968dc686cad8b3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!102 &334135777
 TextMesh:
   serializedVersion: 3
@@ -587,9 +575,10 @@ Transform:
   m_LocalPosition: {x: 12.068, y: 6.543, z: -1.212}
   m_LocalScale: {x: 1.7702574, y: 1.4085221, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1289717335}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
 --- !u!1 &448453703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1316,7 @@ GameObject:
   - 33: {fileID: 1289717334}
   - 65: {fileID: 1289717333}
   - 23: {fileID: 1289717332}
+  - 114: {fileID: 1289717336}
   m_Layer: 0
   m_Name: Nome
   m_TagString: Untagged
@@ -1388,13 +1378,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1289717331}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 11.629388, y: 6.36, z: -1.1526299}
-  m_LocalScale: {x: 3.5, y: 0.7, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.24776736, y: -0.12992346, z: 0.05937016}
+  m_LocalScale: {x: 1.9771136, y: 0.49697483, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 334135779}
+  m_RootOrder: 0
+--- !u!114 &1289717336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1289717331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa92deb3501c8294cbeeb8f7a9fdfb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1290618861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1883,7 @@ Transform:
   - {fileID: 1228244446}
   - {fileID: 739591396}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
 --- !u!114 &2021225256
 MonoBehaviour:
   m_ObjectHideFlags: 0
