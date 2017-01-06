@@ -165,7 +165,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/Projects/drDrinks/user.keystore
+  AndroidKeystoreName: C:/Users/gabri/Documents/drDrinks/user.keystore
   AndroidKeyaliasName: org.dbgames.drinks
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
