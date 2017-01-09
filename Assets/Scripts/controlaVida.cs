@@ -39,21 +39,12 @@ public class controlaVida : MonoBehaviour
 		// Activate the Google Play Games platform
 		PlayGamesPlatform.Activate ();
 
+
 		// authenticate user:
 		Social.localUser.Authenticate ((bool success) => {
 			// handle success or failure
 		});
 	
-	}
-
-	void Update(){
-		//Quando a quantidade de vidas acaba envia a pontuação para o Google Play
-		if (quantidadeVida == 0 && enviarPontos){
-			//Cadastra os pontos no serviço do Google
-			Social.ReportScore (GameObject.Find ("Pontuacao").GetComponent<controlaPontuacao> ().informaPonto (), "CgkI69K_rp8dEAIQBQ", (bool success) => {
-				enviarPontos = false;	
-			});
-		}
 	}
 
 	public void perdeVida ()
@@ -79,8 +70,12 @@ public class controlaVida : MonoBehaviour
 			//Mostra o quadro do game over
 			this.telaGameOver.SetActive (true);
 
-			//Inicia a rotina de esperar para mudar de cena
-			StartCoroutine (fimGame (3));
+			//Cadastra os pontos no serviço do Google
+			Social.ReportScore (GameObject.Find ("Pontuacao").GetComponent<controlaPontuacao> ().informaPonto (), "CgkI69K_rp8dEAIQBQ", (bool success) => {
+				//Inicia a rotina de esperar para mudar de cena
+				StartCoroutine (fimGame (3));
+			});
+
 		}
 	}
 
