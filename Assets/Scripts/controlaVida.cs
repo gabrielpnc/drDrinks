@@ -25,9 +25,6 @@ public class controlaVida : MonoBehaviour
 	[SerializeField]
 	GameObject telaGameOver;
 
-	//Variável que verifica se os pontos foram mandados quando jogo acaba
-	bool enviarPontos = true;
-
 	void Start ()
 	{
 		
