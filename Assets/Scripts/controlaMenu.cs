@@ -24,15 +24,15 @@ public class controlaMenu : MonoBehaviour
 
 		//Controla as opções para não ir menos do que a primeira opcao
 		if (opcaoSelecionada < 1) {
-			opcaoSelecionada = 1;
+			opcaoSelecionada = transform.childCount;
 		}
 		//Controla as opções para não ir mais do que existe dentro do objeto menu
 		if (opcaoSelecionada > transform.childCount) {
-			opcaoSelecionada = transform.childCount;
+			opcaoSelecionada = 1;
 		}
 
-		//Se o analógio retornar ao meio ele pode ser apertado novamente
-		if (Input.GetAxis ("Vertical") == 0) {
+		//Se o analógio retornar ao meio ele pode ser apertado novamente ou soltar todos os dedos da tela
+		if (Input.GetAxis ("Vertical") == 0 && Input.touchCount == 0) {
 			botaoApertado = false;
 		}
 
@@ -54,12 +54,20 @@ public class controlaMenu : MonoBehaviour
 				//Se o jogador não soltar o analógico ele não passa para a proxima opção
 				botaoApertado = true;
 			}
+
+			//Controla as ações por touch (depois eu mesclo com os botão do controle)
+			if(Input.touchCount == 2){
+				opcaoSelecionada++;
+				botaoApertado = true;
+			}
 				
 		}
 
 		//Verifica se o botão de executar a opção foi apertado
 		if (Input.GetButtonDown ("Fire1")) {
-			SceneManager.LoadScene (identificaCena (opcaoSelecionada));
+			if(!Input.GetMouseButton(0)){
+				SceneManager.LoadScene (identificaCena (opcaoSelecionada));
+			}
 		}
 	}
 
